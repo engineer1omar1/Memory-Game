@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.button-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #2195f3d2;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-container span {
+    background-color: #e23d3d;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.time {
+    width: 65px;
+    height: 65px;
+    position: fixed;
+    top: 18px;
+    left: 20px;
+     background-color: #222;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info-container {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    background-color: #f6f6f6;
+    padding: 20px;
+    border: 2px solid #2196f3;
+}
+.memory-game-blocks {
+    width: 830px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+.memory-game-blocks.no-clicking {
+    pointer-events: none;
+}
+.memory-game-blocks .game-block {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    margin: 5px;
+}
+.memory-game-blocks .front {
+    background-color: #333;
+    line-height: 140px;
+}
+.memory-game-blocks .front::after {
+    content: "?";
+    font-size: 140px;
+    font-weight: bold;
+    color: white;
+}
+.memory-game-blocks .back {
+    background-color: #607D8B;
+    transform: rotateY(180deg);
+}
+.memory-game-blocks .back img {
+    width: 70px;
+}
+.memory-game-blocks .face {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 4px solid #2196f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.game-block.is-flipped,
+.game-block.has-match {
+    transform: rotatey(-180deg);
+    -webkit-transform: rotatey(-180deg);
+    -moz-transform: rotatey(-180deg);
+    pointer-events: none;
+}
